@@ -39,7 +39,7 @@ jobs:
         # If we do this, we don't need to build image during CD below.
         #   - name: Push Docker Image to Registry
         #     run: |
-        #       docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+            #   docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         #       docker push nextjs14cicd-docker:0.1
 
   deploy:
@@ -70,7 +70,7 @@ jobs:
 
       - name: Deploy to Vercel
         if: github.ref == 'refs/heads/main'
-        run: npx vercel --token ${{ secrets.VERCEL_TOKEN }} --confirm
+        run: npx vercel --token ${{ secrets.VERCEL_NEW_TOKEN }} --confirm
 
     #   - name: Build Docker Image
     #     run: docker-compose up --build -d
